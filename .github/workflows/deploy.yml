@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NOTION_PAGE_ID: 097e5f674880459d8e1b4407758dc4fb
+          NOTION_PAGE_ID: fc4da0746cad836189b901ffac8745c5
           NEXT_PUBLIC_THEME: simple
           NEXT_PUBLIC_LANG: zh-CN
           NEXT_PUBLIC_AUTHOR: AI 军事游戏观察
@@ -28,7 +28,7 @@ jobs:
       - name: Export
         run: npm run export
         env:
-          NOTION_PAGE_ID: 097e5f674880459d8e1b4407758dc4fb
+          NOTION_PAGE_ID: fc4da0746cad836189b901ffac8745c5
           NEXT_PUBLIC_THEME: simple
           NEXT_PUBLIC_LANG: zh-CN
           NEXT_PUBLIC_AUTHOR: AI 军事游戏观察
