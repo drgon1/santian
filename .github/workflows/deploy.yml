@@ -17,8 +17,24 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          NOTION_PAGE_ID: fc4da0746cad836189b901ffac8745c5
+          NEXT_PUBLIC_THEME: simple
+          NEXT_PUBLIC_LANG: zh-CN
+          NEXT_PUBLIC_AUTHOR: AI 军事游戏观察
+          NEXT_PUBLIC_BIO: 专注于AI、军事、游戏领域的观察与分析
+          NEXT_PUBLIC_LINK: https://drgon1.github.io/santian
+          NEXT_PUBLIC_KEYWORD: AI, 军事, 游戏, 科技, 博客
       - name: Export
         run: npm run export
+        env:
+          NOTION_PAGE_ID: fc4da0746cad836189b901ffac8745c5
+          NEXT_PUBLIC_THEME: simple
+          NEXT_PUBLIC_LANG: zh-CN
+          NEXT_PUBLIC_AUTHOR: AI 军事游戏观察
+          NEXT_PUBLIC_BIO: 专注于AI、军事、游戏领域的观察与分析
+          NEXT_PUBLIC_LINK: https://drgon1.github.io/santian
+          NEXT_PUBLIC_KEYWORD: AI, 军事, 游戏, 科技, 博客
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
