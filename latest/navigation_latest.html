@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曾三天 - 热点导航</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .header .timestamp {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+        .platform-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .platform-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .platform-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .news-count {
+            font-size: 14px;
+            color: #666;
+            background: #f3f4f6;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-rank {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #4f46e5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .news-rank.top-3 {
+            background: #dc2626;
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-title {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .news-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .news-title a:hover {
+            color: #4f46e5;
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .platform-name {
+                font-size: 18px;
+            }
+            .news-title {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>曾三天 - 热点导航</h1>
+            <p>实时热点新闻导航，快速了解今日事</p>
+            <div class="timestamp">更新时间: 2026-04-18 01:15:41</div>
+        </div>
+
+        
+        <div class="platform-section">
+            <div class="platform-header">
+                <div class="platform-name">36氪</div>
+                <div class="news-count">共 10 条</div>
+            </div>
+            <ul class="news-list">
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770915618996995" target="_blank" rel="noopener noreferrer">
+                                热门中概股美股盘前多数走强，拼多多涨超3%
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770914477392384" target="_blank" rel="noopener noreferrer">
+                                美股大型科技股盘前多数上涨，奈飞跌超9%
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770911795069442" target="_blank" rel="noopener noreferrer">
+                                臻镭科技：因信披违规将被实施其他风险警示，股票停牌
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">4</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770903680451074" target="_blank" rel="noopener noreferrer">
+                                加拿大邮政将终止住宅邮件投递
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">5</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770902281863945" target="_blank" rel="noopener noreferrer">
+                                仕佳光子：拟12.65亿元投建高速光芯片与器件开发及产业化项目
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">6</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770894485193218" target="_blank" rel="noopener noreferrer">
+                                国信证券：2025年净利润110.73亿元，同比增长34.76%
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">7</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770882502165001" target="_blank" rel="noopener noreferrer">
+                                盛新锂能：董事及高管拟合计减持不超0.091%股份
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">8</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770880143557123" target="_blank" rel="noopener noreferrer">
+                                韵达股份：3月快递服务业务收入45.9亿元，同比增长4.08%
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">9</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770875399209737" target="_blank" rel="noopener noreferrer">
+                                问界加入逸安启，与宝马、奔驰三方各持有33.3%股份
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">10</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.36kr.com/newsflashes/3770874086277888" target="_blank" rel="noopener noreferrer">
+                                藏格矿业：一季度净利润15.74亿元，同比增长110.6%
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="platform-section">
+            <div class="platform-header">
+                <div class="platform-name">今日头条</div>
+                <div class="news-count">共 10 条</div>
+            </div>
+            <ul class="news-list">
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629453145441386537/" target="_blank" rel="noopener noreferrer">
+                                男孩参加学校春游下车发现竟是自己家
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629684437424279067/" target="_blank" rel="noopener noreferrer">
+                                东部战区披露：日舰过航台海近14小时
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629629232491216939/" target="_blank" rel="noopener noreferrer">
+                                从多场景看中国经济活力
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">4</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7628943383189258281/" target="_blank" rel="noopener noreferrer">
+                                广西人又放假了
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">5</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629720876350443049/" target="_blank" rel="noopener noreferrer">
+                                雷军15小时不眠直播手机却被“偷家”
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">6</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629250890700111891/" target="_blank" rel="noopener noreferrer">
+                                外军大舰强闯海峡 我军舰缠斗驱离
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">7</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7628709009670881331/" target="_blank" rel="noopener noreferrer">
+                                伊朗开放霍尔木兹海峡
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">8</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629650762645176363/" target="_blank" rel="noopener noreferrer">
+                                证监会：对余某罚没10亿余元
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">9</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7629703538171448882/" target="_blank" rel="noopener noreferrer">
+                                央视主持人朱迅自曝已抗癌20年
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">10</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.toutiao.com/trending/7628818660358176831/" target="_blank" rel="noopener noreferrer">
+                                李小冉哽咽回应乘风2026一公个人第一
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="platform-section">
+            <div class="platform-header">
+                <div class="platform-name">凤凰新闻</div>
+                <div class="news-count">共 10 条</div>
+            </div>
+            <ul class="news-list">
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://news.ifeng.com/c/8sOrmZQ0DT7" target="_blank" rel="noopener noreferrer">
+                                伊朗在霍尔木兹海峡收费，为何新加坡急了？
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://wallstreetcn.com/articles/3770261" target="_blank" rel="noopener noreferrer">
+                                美伊磋商结束战争计划！美国考虑解冻200亿美元伊朗资产，换取伊方放弃浓缩铀！
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.cls.cn/detail/2347485" target="_blank" rel="noopener noreferrer">
+                                一图看懂 | A股七姐妹vs美股七姐妹，今年谁更能涨？
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://news.ifeng.com/c/8sP8qU1elQh" target="_blank" rel="noopener noreferrer">
+                                伊朗：在停火剩余时间内，霍尔木兹海峡完全开放
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://wallstreetcn.com/articles/3770196" target="_blank" rel="noopener noreferrer">
+                                华尔街见闻早餐FM-Radio | 2026年4月17日
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.cls.cn/detail/2347931" target="_blank" rel="noopener noreferrer">
+                                伊朗外长宣布谈判期间开放海峡 国际油价闪崩10%、纳指冲击13连涨
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://news.ifeng.com/c/8sO8NgorsLn" target="_blank" rel="noopener noreferrer">
+                                毛焦尔喊话乌克兰：恢复“友谊”石油管道运行
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://wallstreetcn.com/articles/3770156" target="_blank" rel="noopener noreferrer">
+                                美对伊启动“经济狂怒”行动、施压达成协议，伊朗斥为经济恐怖主义，称敌人误判战局
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.cls.cn/detail/2347509" target="_blank" rel="noopener noreferrer">
+                                证监会：2025年查办操纵市场获利超亿元案件19起
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">4</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://news.ifeng.com/c/8sPEVCIE406" target="_blank" rel="noopener noreferrer">
+                                高市预计不会参加靖国神社春季例行参拜
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="platform-section">
+            <div class="platform-header">
+                <div class="platform-name">澎湃新闻</div>
+                <div class="news-count">共 10 条</div>
+            </div>
+            <ul class="news-list">
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32985465" target="_blank" rel="noopener noreferrer">
+                                她工资腰斩，却想学开飞机去轰炸伊朗
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32992724" target="_blank" rel="noopener noreferrer">
+                                一日本自卫队舰艇进入台湾海峡，外交部：中国军队已依法依规处置
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32978619" target="_blank" rel="noopener noreferrer">
+                                78岁蔡志忠：是智者，是狂人？
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">4</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32988235" target="_blank" rel="noopener noreferrer">
+                                上市以来首次年度业绩下滑！贵州茅台去年净利降4.53%，拟分红350亿元
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">5</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32993089" target="_blank" rel="noopener noreferrer">
+                                共罚没35.97亿元！7家头部平台涉“幽灵外卖”系列案被处罚
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">6</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32852201" target="_blank" rel="noopener noreferrer">
+                                劣质硬盘在京东持续销售，客服称无法判定真假愿意“退一赔一”
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">7</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32990291" target="_blank" rel="noopener noreferrer">
+                                英媒称伊朗部署中国卫星监视美军基地，中使馆：坚决反对造谣
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">8</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32990810" target="_blank" rel="noopener noreferrer">
+                                马上评｜黄晓明再战博士复试：别把“明星读书”这事污名化了
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">9</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32991126" target="_blank" rel="noopener noreferrer">
+                                受贿数额特别巨大，国家中医药管理局原局长于文明被提起公诉
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">10</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://www.thepaper.cn/newsDetail_forward_32991198" target="_blank" rel="noopener noreferrer">
+                                中越联合声明（全文）
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="platform-section">
+            <div class="platform-header">
+                <div class="platform-name">稀土掘金</div>
+                <div class="news-count">共 10 条</div>
+            </div>
+            <ul class="news-list">
+
+                <li class="news-item">
+                    <div class="news-rank top-3">1</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628535637260959770" target="_blank" rel="noopener noreferrer">
+                                GetX 之死 | 8 年从未用过，以后将不会再用
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">2</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7629093024325025838" target="_blank" rel="noopener noreferrer">
+                                深入理解 JavaScript 的 AbortController：从底层原理到跨语言设计哲学
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank top-3">3</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628825069887799339" target="_blank" rel="noopener noreferrer">
+                                彻底疯狂，Claude居然要上传身份证！
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">4</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7629261406288379940" target="_blank" rel="noopener noreferrer">
+                                同事偷偷给我介绍私活，说1万报酬全给我，结果甲方私下告诉我说，同事在当中白拿了2万，我觉得被耍了，媳妇却让我要知足，说我一点不亏
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">5</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628114662257901577" target="_blank" rel="noopener noreferrer">
+                                做中后台业务，为什么我不建议你用 Tailwind CSS？
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">6</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628587639852630052" target="_blank" rel="noopener noreferrer">
+                                compose_skill 和 android skills，对 Android 项目提升巨大的专家 AI Skills
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">7</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628116434649088009" target="_blank" rel="noopener noreferrer">
+                                写给 Claude Code 初学者的使用技巧
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">8</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628861022926782490" target="_blank" rel="noopener noreferrer">
+                                邪修！让显示器支持AI、远程、手势三种控制方式
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">9</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628157773155827753" target="_blank" rel="noopener noreferrer">
+                                Flutter PC 多窗口最新进展，底层原生窗口句柄支持已合并
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+                <li class="news-item">
+                    <div class="news-rank ">10</div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="https://juejin.cn/post/7628489262722400294" target="_blank" rel="noopener noreferrer">
+                                浅谈Getx删库跑库了
+                            </a>
+                        </h3>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="footer">
+            <p>© 2026 曾三天 | <a href="https://app.netlify.com/teams/drgon1/settings/general" target="_blank">Netlify</a></p>
+        </div>
+    </div>
+</body>
+</html>
