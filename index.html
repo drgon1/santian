@@ -196,7 +196,69 @@
             background: rgba(58,65,80,0.1);
             border: none;
         }
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .category-tab {
+            padding: 8px 16px;
+            background: rgba(74,124,155,0.1);
+            color: #4a7c9b;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74,124,155,0.2);
+        }
+        .category-tab:hover {
+            background: rgba(74,124,155,0.2);
+            transform: translateY(-1px);
+        }
+        .category-tab.active {
+            background: #4a7c9b;
+            color: white;
+            border-color: #4a7c9b;
+        }
+        .category-tab span {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-left: 4px;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.category-tab');
+            const contentSections = document.querySelectorAll('.card');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有标签的active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // 添加当前标签的active类
+                    this.classList.add('active');
+
+                    const category = this.dataset.category;
+
+                    contentSections.forEach(section => {
+                        if (section.classList.contains('footer')) {
+                            section.style.display = 'block';
+                            return;
+                        }
+                        
+                        if (category === 'all' || section.dataset.category === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header class="header">
@@ -204,14 +266,15 @@
             <a href="#" class="logo">三天笔记</a>
             <nav class="nav">
                 <a href="#" class="active">首页</a>
-                <a href="#">三天笔记</a>
+                <a href="#">三天攻略</a>
                 <a href="#">三天小说</a>
                 <a href="#">三天漫画</a>
             </nav>
         </div>
     </header>
     <div class="wrapper">
-        <div class="card">
+<div class="category-tabs"><div class="category-tab active" data-category="all">全部</div><div class="category-tab" data-category="toutiao">toutiao <span>30</span></div><div class="category-tab" data-category="thepaper">thepaper <span>20</span></div><div class="category-tab" data-category="ifeng">ifeng <span>35</span></div><div class="category-tab" data-category="36kr">36kr <span>20</span></div><div class="category-tab" data-category="juejin">juejin <span>30</span></div><div class="category-tab" data-category="feishu">feishu <span>20</span></div></div>
+        <div class="card" data-category="toutiao">
             <h2>toutiao</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="https://www.toutiao.com/trending/7629684437424279067/" target="_blank">东部战区披露：日舰过航台海近14小时</a></div>            </div>
@@ -246,7 +309,7 @@
             <div class="list-item-row">                <div class="list-item-bullet">30</div>                <div class="list-item-text"><a href="https://www.toutiao.com/trending/7628648661354709033/" target="_blank">张雪机车震惊“机车之岛”台湾背后</a></div>            </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" data-category="thepaper">
             <h2>thepaper</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="https://www.thepaper.cn/newsDetail_forward_32992724" target="_blank">一日本自卫队舰艇进入台湾海峡，外交部：中国军队已依法依规处置</a></div>            </div>
@@ -271,7 +334,7 @@
             <div class="list-item-row">                <div class="list-item-bullet">20</div>                <div class="list-item-text"><a href="https://www.thepaper.cn/newsDetail_forward_32993733" target="_blank">重庆市委常委、两江新区区委书记罗蔺被查</a></div>            </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" data-category="ifeng">
             <h2>ifeng</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="https://news.ifeng.com/c/8sOrmZQ0DT7" target="_blank">伊朗在霍尔木兹海峡收费，为何新加坡急了？</a></div>            </div>
@@ -311,7 +374,7 @@
             <div class="list-item-row">                <div class="list-item-bullet">13</div>                <div class="list-item-text"><a href="https://www.cls.cn/detail/2347609" target="_blank">南向资金追踪｜单周净买入超257亿港元 加仓泡泡玛特及中海油抛售腾讯</a></div>            </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" data-category="36kr">
             <h2>36kr</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="https://www.36kr.com/newsflashes/3770915618996995" target="_blank">热门中概股美股盘前多数走强，拼多多涨超3%</a></div>            </div>
@@ -336,7 +399,7 @@
             <div class="list-item-row">                <div class="list-item-bullet">20</div>                <div class="list-item-text"><a href="https://www.36kr.com/newsflashes/3770778659111426" target="_blank">2连板可川科技：全资子公司可川光子正在积极地进行市场开拓工作，暂未形成营收</a></div>            </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" data-category="juejin">
             <h2>juejin</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="https://juejin.cn/post/7628535637260959770" target="_blank">GetX 之死 | 8 年从未用过，以后将不会再用</a></div>            </div>
@@ -371,7 +434,7 @@
             <div class="list-item-row">                <div class="list-item-bullet">30</div>                <div class="list-item-text"><a href="https://juejin.cn/post/7628547108750327843" target="_blank">线上Bug炸了，用户骂你你却不知道？前端监控教你“远程开天眼”</a></div>            </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" data-category="feishu">
             <h2>feishu</h2>
             <div class="list-wrapper">
             <div class="list-item-row">                <div class="list-item-bullet">1</div>                <div class="list-item-text"><a href="http://m.toutiao.com/group/7626389762903163432/" target="_blank">Anthropic年化收入突破300亿美元 首超OpenAI</a></div>            </div>
