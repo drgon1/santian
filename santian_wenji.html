@@ -59,39 +59,14 @@
         }
         .nav a.active {
             background: rgba(255,255,255,0.3);
-            font-weight: 600;
         }
         .wrapper {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        .category-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-        .category-tab {
-            padding: 8px 16px;
-            background: rgba(0,102,204,0.1);
-            color: #000000;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,102,204,0.2);
-        }
-        .category-tab:hover {
-            background: rgba(0,102,204,0.2);
-            transform: translateY(-1px);
-        }
-        .category-tab.active {
-            background: #0066cc;
-            color: white;
-            border-color: #0066cc;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
         }
         .card {
             width: 100%;
@@ -103,17 +78,33 @@
             border: 1px solid rgba(74,124,155,0.08);
             box-shadow: 0 8px 28px rgba(58,65,80,0.06), 0 0 16px rgba(74,124,155,0.15);
             border-radius: 14px;
+        }
+        .page-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3a4150;
+            text-align: center;
+            padding: 16px 24px;
+            margin: 0 0 12px 0;
+            border-bottom: 1px dashed rgba(58,65,80,0.3);
+        }
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
             margin-bottom: 20px;
         }
-        .card h2 {
-            font-size: 20px;
+        .day-group {
+            margin-bottom: 24px;
+        }
+        .day-header {
+            font-size: 16px;
             font-weight: bold;
             color: #0066cc;
-            border-bottom: 1px dashed rgba(58,65,80,0.3);
-            padding: 0 0 10px 0;
-            margin-top: 0;
-            margin-bottom: 16px;
-            line-height: 1.3;
+            padding: 8px 12px;
+            background: rgba(0,102,204,0.06);
+            border-radius: 6px;
+            margin-bottom: 8px;
         }
         .article-list {
             list-style: none;
@@ -121,32 +112,40 @@
             margin: 0;
         }
         .article-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid rgba(58,65,80,0.06);
         }
         .article-item:last-child {
             border-bottom: none;
         }
         .article-link {
-            text-decoration: none;
-            color: #333;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            padding: 10px 12px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.2s;
+            border-radius: 4px;
         }
         .article-link:hover {
-            color: #4a7c9b;
+            background: rgba(0,102,204,0.04);
+        }
+        .article-link span:first-child {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.5;
         }
         .article-date {
-            font-size: 12px;
+            font-size: 13px;
             color: #999;
+            margin-left: 16px;
             white-space: nowrap;
-            margin-left: 10px;
         }
-        strong {
-            font-weight: bold;
+        .footer-card p {
+            font-size: 15px;
             color: #000000;
+            line-height: 1.75;
+            margin: 8px 0;
         }
     </style>
 </head>
@@ -156,32 +155,25 @@
             <a href="index.html" class="logo">三天笔记</a>
             <nav class="nav">
                 <a href="index.html">首页</a>
-                <a href="santian_wenji.html" class="active">三天文集</a>
+                <a href="#" class="active">三天文集</a>
                 <a href="#">三天手册</a>
                 <a href="#">三天小说</a>
                 <a href="#">三天漫画</a>
             </nav>
         </div>
     </header>
-    
-    <div style="max-width: 800px; margin: 0 auto; padding: 50px 20px; text-align: center;">
-        <div style="font-size: 40px; font-weight: bold; font-family: '华文新魏', 'STXinwei', serif;">三天文集</div>
-        <div style="margin-top: 10px; color: #666;">收录所有历史文章，按分类归档（共 27 篇）</div>
-    </div>
-    
+
     <div class="wrapper">
-        <div class="category-tabs">
-            <div class="category-tab active" data-category="全部">全部</div><div class="category-tab" data-category="游戏">游戏 (27)</div>
-        </div>
-        
-        
-        <div class="card" data-category="游戏">
-            <h2>游戏</h2>
+        <div class="card">
+            <div class="page-title">三天文集</div>
+            <div class="page-subtitle">共收录 27 篇文章 · 生成时间: 2026年05月13日 22:45</div>
+            
+        <div class="day-group">
+            <div class="day-header">2026-05-12</div>
             <ul class="article-list">
-                
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.05.12_0800_1.html" class="article-link">
-                        <span>首战即破亿：《异环》出海之路揭示中国游戏全球化新范式</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.05.12_2030_3.html" class="article-link">
+                        <span>《剑网 3》老五唐捷径背后的机制博弈与玩家智慧</span>
                         <span class="article-date">2026-05-12</span>
                     </a>
                 </li>
@@ -192,14 +184,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.05.12_2030_3.html" class="article-link">
-                        <span>《剑网 3》老五唐捷径背后的机制博弈与玩家智慧</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.05.12_0800_1.html" class="article-link">
+                        <span>首战即破亿：《异环》出海之路揭示中国游戏全球化新范式</span>
                         <span class="article-date">2026-05-12</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-05-01</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.05.01_0800_1.html" class="article-link">
-                        <span>首战即破亿：《异环》出海之路揭示中国游戏全球化新范式</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.05.01_2030_3.html" class="article-link">
+                        <span>《剑网 3》老五唐捷径背后的机制博弈与玩家智慧</span>
                         <span class="article-date">2026-05-01</span>
                     </a>
                 </li>
@@ -210,14 +207,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.05.01_2030_3.html" class="article-link">
-                        <span>《剑网 3》老五唐捷径背后的机制博弈与玩家智慧</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.05.01_0800_1.html" class="article-link">
+                        <span>首战即破亿：《异环》出海之路揭示中国游戏全球化新范式</span>
                         <span class="article-date">2026-05-01</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-30</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.30_0800_1.html" class="article-link">
-                        <span>3000 亿狂潮：AI 如何将游戏从“消费品”重塑为“智慧体</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.30_2030_3.html" class="article-link">
+                        <span>政策暖风下的游戏突围：当存量博弈遭遇政策红利，谁能真正吃到蛋</span>
                         <span class="article-date">2026-04-30</span>
                     </a>
                 </li>
@@ -228,14 +230,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.30_2030_3.html" class="article-link">
-                        <span>政策暖风下的游戏突围：当存量博弈遭遇政策红利，谁能真正吃到蛋</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.30_0800_1.html" class="article-link">
+                        <span>3000 亿狂潮：AI 如何将游戏从“消费品”重塑为“智慧体</span>
                         <span class="article-date">2026-04-30</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-29</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.29_0800_1.html" class="article-link">
-                        <span>超梦降临，免费狂欢：当“六星怪”不再门槛，全民狂欢背后的游戏</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.29_2030_3.html" class="article-link">
+                        <span>内存暴涨下，Project Helix 的定价焦虑与行业隐忧</span>
                         <span class="article-date">2026-04-29</span>
                     </a>
                 </li>
@@ -246,14 +253,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.29_2030_3.html" class="article-link">
-                        <span>内存暴涨下，Project Helix 的定价焦虑与行业隐忧</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.29_0800_1.html" class="article-link">
+                        <span>超梦降临，免费狂欢：当“六星怪”不再门槛，全民狂欢背后的游戏</span>
                         <span class="article-date">2026-04-29</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-28</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.28_0800_1.html" class="article-link">
-                        <span>《战地》新世代：沙盒化战役是否意味着游戏逻辑的彻底重构？</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.28_2030_3.html" class="article-link">
+                        <span>1.2 亿美元豪注：当文字点燃 3D 世界，游戏开发正面临范</span>
                         <span class="article-date">2026-04-28</span>
                     </a>
                 </li>
@@ -264,14 +276,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.28_2030_3.html" class="article-link">
-                        <span>1.2 亿美元豪注：当文字点燃 3D 世界，游戏开发正面临范</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.28_0800_1.html" class="article-link">
+                        <span>《战地》新世代：沙盒化战役是否意味着游戏逻辑的彻底重构？</span>
                         <span class="article-date">2026-04-28</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-27</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.27_0800_1.html" class="article-link">
-                        <span>2026 电竞世界杯：MLBB 两大赛事同时升级，这波操作太</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.27_2030_3.html" class="article-link">
+                        <span>等了十年才等来？EA 确认《战地》回归，却定档 2026！</span>
                         <span class="article-date">2026-04-27</span>
                     </a>
                 </li>
@@ -282,20 +299,30 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.27_2030_3.html" class="article-link">
-                        <span>等了十年才等来？EA 确认《战地》回归，却定档 2026！</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.27_0800_1.html" class="article-link">
+                        <span>2026 电竞世界杯：MLBB 两大赛事同时升级，这波操作太</span>
                         <span class="article-date">2026-04-27</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-26</div>
+            <ul class="article-list">
                 <li class="article-item">
                     <a href="三天文集/游戏/游戏_toutiao_2026.04.26_1220_2.html" class="article-link">
                         <span>AI 造神？2026腾讯大赛喊你当主角，游戏圈要变天了？</span>
                         <span class="article-date">2026-04-26</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-25</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.25_0800_1.html" class="article-link">
-                        <span>《王者荣耀世界》破 5000 万！腾讯这次要掀翻谁的桌？</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.25_2030_3.html" class="article-link">
+                        <span>2026 游戏新规！全球监管大洗牌，从业者必看！</span>
                         <span class="article-date">2026-04-25</span>
                     </a>
                 </li>
@@ -306,14 +333,19 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.04.25_2030_3.html" class="article-link">
-                        <span>2026 游戏新规！全球监管大洗牌，从业者必看！</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.04.25_0800_1.html" class="article-link">
+                        <span>《王者荣耀世界》破 5000 万！腾讯这次要掀翻谁的桌？</span>
                         <span class="article-date">2026-04-25</span>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-24</div>
+            <ul class="article-list">
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.4.24_1220_1.html" class="article-link">
-                        <span>游戏要凉？大摩放话：AI 能让成本减半，吐出 220 亿真金</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.4.24_800_1.html" class="article-link">
+                        <span>游戏收入破千亿？别被数据骗了，背后藏着更疯狂的真相！</span>
                         <span class="article-date">2026-04-24</span>
                     </a>
                 </li>
@@ -324,66 +356,45 @@
                     </a>
                 </li>
                 <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.4.24_800_1.html" class="article-link">
-                        <span>游戏收入破千亿？别被数据骗了，背后藏着更疯狂的真相！</span>
+                    <a href="三天文集/游戏/游戏_toutiao_2026.4.24_1220_1.html" class="article-link">
+                        <span>游戏要凉？大摩放话：AI 能让成本减半，吐出 220 亿真金</span>
                         <span class="article-date">2026-04-24</span>
                     </a>
                 </li>
-                <li class="article-item">
-                    <a href="三天文集/游戏/游戏_toutiao_2026.4.20_1220_1.html" class="article-link">
-                        <span>2026 年 4 月网游谁最强？你以为欧美科幻？其实国风碾压！</span>
-                        <span class="article-date">2026-04-20</span>
-                    </a>
-                </li>
+            </ul>
+        </div>
+        <div class="day-group">
+            <div class="day-header">2026-04-20</div>
+            <ul class="article-list">
                 <li class="article-item">
                     <a href="三天文集/游戏/游戏_toutiao_2026.4.20_800_1.html" class="article-link">
                         <span>游戏收入破千亿！你以为是行业回暖，其实背后藏着更惊人的真相</span>
                         <span class="article-date">2026-04-20</span>
                     </a>
                 </li>
+                <li class="article-item">
+                    <a href="三天文集/游戏/游戏_toutiao_2026.4.20_1220_1.html" class="article-link">
+                        <span>2026 年 4 月网游谁最强？你以为欧美科幻？其实国风碾压...</span>
+                        <span class="article-date">2026-04-20</span>
+                    </a>
+                </li>
             </ul>
         </div>
-        
-        <!-- 关于我们 -->
-        <div class="card" data-category="footer">
-            <h2>关于我们</h2>
-            <p>📱 公众号名称：三天笔记</p>
-            <p>✍️ 作者：曾三天</p>
-            <div style="text-align:center;margin:20px 0;">
-                <p style="font-size:14px;color:#666;margin-bottom:10px;text-align:center">扫码关注公众号，获取每日最新资讯</p>
-                <img src="https://drgon1.github.io/images/qrcode.jpg" alt="公众号二维码" style="width:200px;height:200px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-            </div>
         </div>
 
-        <!-- 商务合作与版权 -->
-        <div class="card" data-category="footer">
-            <h2>商务合作与版权</h2>
-            <p><strong style="font-weight:bold;color:#3d6a8a">商务合作 / 内容投稿 / 品牌推广</strong></p>
-            <p>请关注公众号「三天笔记」后台留言联系</p>
-            <hr style="margin-top:32px;margin-bottom:32px;height:1px;background:rgba(58,65,80,0.1);border:none">
-            <p><strong style="font-weight:bold;color:#3d6a8a">版权声明</strong>：本文由作者整理，转载需注明出处。</p>
-            <p style="text-align:center;color:#666;font-size:14px;margin-top:20px;">© 2024 三天笔记 保留所有权利</p>
+        <!-- 关于我们 -->
+        <div class="card footer-card" style="text-align:center;">
+            <h2 style="font-size:20px;font-weight:bold;color:#0066cc;border-bottom:1px dashed rgba(58,65,80,0.3);padding:0 0 10px 0;margin-top:0;margin-bottom:16px;">关于我们</h2>
+            <p>📱 公众号名称：三天笔记</p>
+            <p>✍️ 作者：曾三天</p>
+            <p style="font-size:14px;color:#666;margin:16px 0 10px 0;">扫码关注公众号，获取每日最新资讯</p>
+            <img src="https://drgon1.github.io/images/qrcode.jpg" alt="公众号二维码" style="width:200px;height:200px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        </div>
+
+        <!-- 版权 -->
+        <div class="card footer-card" style="text-align:center;">
+            <p style="font-size:15px;color:#666;">© 2024 三天笔记 保留所有权利</p>
         </div>
     </div>
-    
-    <script>
-        // 分类切换功能
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                const category = this.getAttribute('data-category');
-                
-                document.querySelectorAll('.card[data-category]').forEach(card => {
-                    if (category === '全部' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
