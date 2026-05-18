@@ -5,7 +5,7 @@
 > 这不是普通的 Skill 集合，而是一套**会自我进化的 AI 思维框架**。每次遇到问题，它都会自动提炼最优解法，下次直接复用，彻底告别重复思考。
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-3-success)](.lingma/skills/)
+[![Skills](https://img.shields.io/badge/skills-4-success)](.lingma/skills/)
 [![Auto-Evolve](https://img.shields.io/badge/auto--evolve-enabled-brightgreen)](#核心机制)
 
 ---
@@ -91,6 +91,11 @@
   - **功能**：标准化 GitHub Skill 发布流程，包括仓库结构、文档规范、提交流程、版本管理
   - **五步法**：准备文件 → 更新 README → Git 提交 → 验证推送 → 后续维护
   - **适用**：Skill 上传、版本更新、开源贡献
+
+- [GitHub Skill 自动更新触发器](ai-skills/.lingma/skills/github-skill-updater.md) ⭐ **新增**
+  - **功能**：检测 Skill 更新需求，自动执行修改并提交到 GitHub
+  - **四步法**：检测需求 → 执行修改 → 验证结果 → 参考 publisher 提交
+  - **协同**：与 `github-skill-publisher.md` 配合，形成完整更新闭环
 
 ### 🌐 中间层通信
 
