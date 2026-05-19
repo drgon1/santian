@@ -39,13 +39,14 @@
 - 目标URL：____________________（如：https://mp.toutiao.com/profile_v4/graphic/publish）
 - 关键操作：____________________（如：输入标签、点击按钮、上传封面）
 - 预期结果：____________________（如：标签成功添加到正文）
+- **是否需要登录**：____________________（是/否，如需登录则配置 auth_state）
 ```
 
 ### 步骤 2：选择测试模板（必做）
 
 根据测试目标选择合适的模板：
 
-#### 模板A：简单元素验证（单步骤）
+#### 模板A：简单元素验证（单步骤，含免登录支持）
 
 ```python
 #!/usr/bin/env python3
@@ -81,13 +82,22 @@ async def main():
             args=['--lang=zh-CN']
         )
         
-        context = await browser.new_context(
-            locale="zh-CN",
-            viewport={"width": 1280, "height": 800}
-        )
+        # 2. 【免登录配置】加载 auth_state（如果存在）
+        AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\xxx_auth_state.json")
+        context_options = {
+            "locale": "zh-CN",
+            "viewport": {"width": 1280, "height": 800}
+        }
+        if AUTH_STATE_FILE.exists():
+            print(f"✅ 加载登录态: {AUTH_STATE_FILE}")
+            context_options["storage_state"] = str(AUTH_STATE_FILE)
+        else:
+            print(f"⚠️ 未找到登录态文件，需要手动登录")
+        
+        context = await browser.new_context(**context_options)
         page = await context.new_page()
         
-        # 2. 打开目标页面
+        # 3. 打开目标页面
         print(f"=== 打开目标页面 ===")
         await page.goto(
             "<目标URL>",
@@ -97,7 +107,7 @@ async def main():
         await page.wait_for_timeout(3000)
         await debug_with_screenshot(page, "initial_page")
         
-        # 3. 执行测试操作
+        # 4. 执行测试操作
         print(f"\n=== 执行测试操作 ===")
         try:
             # 在这里编写测试逻辑
@@ -110,7 +120,21 @@ async def main():
             print(f"  ❌ 测试操作失败: {e}")
             await debug_with_screenshot(page, "error")
         
-        # 4. 等待用户确认
+        # 5. 【首次登录】如果需要登录且没有 auth_state，等待用户手动登录
+        if not AUTH_STATE_FILE.exists():
+            print("\n⚠️ 检测到需要登录，请在浏览器中完成登录...")
+            print("   登录完成后，按 Enter 保存登录态并继续测试")
+            input("按 Enter 继续...")
+            
+            # 保存登录态供下次使用
+            try:
+                await context.storage_state(path=str(AUTH_STATE_FILE))
+                print(f"✅ 登录态已保存: {AUTH_STATE_FILE}")
+                print("   下次运行将自动登录！")
+            except Exception as e:
+                print(f"⚠️ 保存登录态失败: {e}")
+        
+        # 6. 等待用户确认
         print(f"\n=== 测试完成 ===")
         input("按 Enter 关闭浏览器...")
         
@@ -424,7 +448,7 @@ async def click_with_fallback(page, target_text, description="元素"):
 
 ---
 
-## 四、常见测试场景模板
+## 八、常见测试场景模板
 
 ### 4.1 测试标签选择
 
@@ -467,7 +491,7 @@ steps = [
 
 ---
 
-## 五、文件位置规范（强制要求）
+## 九、文件位置规范（强制要求）
 
 | 文件类型 | 位置 | 命名规则 |
 |---------|------|---------|
@@ -486,7 +510,139 @@ f:\myclaw\test\debug_error_1768900015.png
 
 ---
 
-## 六、快速启动命令
+## 六、免登录配置（调试发布脚本必备）
+
+### 6.1 为什么需要免登录？
+
+调试发布脚本时，每次测试都要重新登录会极大降低效率。通过 `auth_state` 持久化，可以实现：
+- ✅ 首次手动登录一次
+- ✅ 后续测试自动登录
+- ✅ 保持会话状态，更接近真实场景
+
+### 6.2 配置步骤
+
+**步骤 1：确定目标平台的 auth_state 文件路径**
+
+```python
+# 头条号
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\toutiao_auth_state.json")
+
+# 百家号
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\baijia_auth_state.json")
+
+# 大鱼号
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\dayu_auth_state.json")
+
+# 微信公众号
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\wechat_auth_state.json")
+
+# 小红书
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\xiaohongshu_auth_state.json")
+```
+
+**步骤 2：在测试脚本中添加免登录代码**
+
+```python
+# 在创建 context 之前添加
+AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\xxx_auth_state.json")
+context_options = {
+    "locale": "zh-CN",
+    "viewport": {"width": 1280, "height": 800}
+}
+
+if AUTH_STATE_FILE.exists():
+    print(f"✅ 加载登录态: {AUTH_STATE_FILE}")
+    context_options["storage_state"] = str(AUTH_STATE_FILE)
+else:
+    print(f"⚠️ 未找到登录态文件，需要手动登录")
+
+context = await browser.new_context(**context_options)
+```
+
+**步骤 3：首次运行时保存登录态**
+
+```python
+# 在测试完成后，如果之前没有 auth_state，提示用户登录并保存
+if not AUTH_STATE_FILE.exists():
+    print("\n⚠️ 检测到需要登录，请在浏览器中完成登录...")
+    input("登录完成后，按 Enter 保存登录态...")
+    
+    # 保存登录态
+    await context.storage_state(path=str(AUTH_STATE_FILE))
+    print(f"✅ 登录态已保存: {AUTH_STATE_FILE}")
+```
+
+### 6.3 完整示例（头条号调试）
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""测试：头条号标签选择功能"""
+
+import asyncio
+from pathlib import Path
+from playwright.async_api import async_playwright
+
+TEST_DIR = Path(r"f:\myclaw\test")
+TEST_DIR.mkdir(parents=True, exist_ok=True)
+
+async def debug_with_screenshot(page, step_name="unknown"):
+    timestamp = int(asyncio.get_event_loop().time() * 1000)
+    filename = TEST_DIR / f"debug_{step_name}_{timestamp}.png"
+    await page.screenshot(path=str(filename))
+    print(f"✅ 截图: {filename.name}")
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=False)
+        
+        # 免登录配置
+        AUTH_STATE_FILE = Path(r"f:\myclaw\lama-puppeteer\auth_states\toutiao_auth_state.json")
+        context_options = {"locale": "zh-CN", "viewport": {"width": 1280, "height": 800}}
+        
+        if AUTH_STATE_FILE.exists():
+            context_options["storage_state"] = str(AUTH_STATE_FILE)
+            print("✅ 已加载头条号登录态")
+        
+        context = await browser.new_context(**context_options)
+        page = await context.new_page()
+        
+        # 导航到发布页面
+        await page.goto("https://mp.toutiao.com/profile_v4/graphic/publish")
+        await page.wait_for_timeout(3000)
+        await debug_with_screenshot(page, "publish_page")
+        
+        # 测试标签选择
+        await page.keyboard.type("#游戏")
+        await page.wait_for_timeout(2000)
+        await debug_with_screenshot(page, "after_input_tag")
+        
+        # 如果是首次运行，保存登录态
+        if not AUTH_STATE_FILE.exists():
+            print("\n如需保存登录态，请按 Enter...")
+            input()
+            await context.storage_state(path=str(AUTH_STATE_FILE))
+            print("✅ 登录态已保存")
+        
+        input("\n按 Enter 关闭...")
+        await browser.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### 6.4 常见问题
+
+| 问题 | 原因 | 解决方案 |
+|------|------|----------|
+| 每次都要重新登录 | auth_state 文件不存在或路径错误 | 检查文件路径是否正确 |
+| 登录后仍然提示未登录 | cookies 过期 | 删除旧的 auth_state.json，重新登录 |
+| auth_state.json 很大（几百KB） | 包含大量缓存数据 | 正常现象，不影响使用 |
+| 多个平台共用一个 auth_state | 配置错误 | 每个平台使用独立的 auth_state 文件 |
+
+---
+
+## 七、快速启动命令
 
 ```bash
 # 1. 生成测试脚本
@@ -506,7 +662,7 @@ del debug_*.png
 
 ---
 
-## 七、禁止事项（强制要求）
+## 十、禁止事项（强制要求）
 
 - ❌ **禁止将截图保存在 `test/` 目录以外的任何位置**
 - ❌ 禁止使用 headless=True（必须 False 才能截图）
@@ -518,7 +674,7 @@ del debug_*.png
 
 ---
 
-## 八、使用示例
+## 十一、使用示例
 
 ### 示例1：快速测试头条标签选择
 
@@ -543,7 +699,7 @@ del debug_*.png
 
 ---
 
-## 九、核心原则
+## 十二、核心原则
 
 1. **截图一律保存到 `f:\myclaw\test\` 目录**（强制！）
 2. **使用绝对路径，禁止相对路径**
