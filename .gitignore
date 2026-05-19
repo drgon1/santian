@@ -5,3 +5,5 @@
 # Note: Only skills with .public file will be synced to GitHub
 ai-skills/.lingma/skills/browser-provider-implementer/
 ai-skills/docs/browser-provider-implementer.md
+ai-skills/.lingma/skills/playwright-test-generator/
+ai-skills/docs/playwright-test-generator.md
