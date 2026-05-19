@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skills - 三天笔记</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #4a7c9b, #3d6a8a);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-family: '华文新魏', 'STXinwei', serif;
+        }
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo::before {
+            content: '📝';
+            font-size: 30px;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .nav a.active {
+            background: rgba(255,255,255,0.3);
+        }
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            width: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            background-image: linear-gradient(rgba(74,124,155,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(74,124,155,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+            border: 1px solid rgba(74,124,155,0.08);
+            box-shadow: 0 8px 28px rgba(58,65,80,0.06), 0 0 16px rgba(74,124,155,0.15);
+            border-radius: 14px;
+        }
+        .page-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3a4150;
+            text-align: center;
+            padding: 16px 24px;
+            margin: 0 0 12px 0;
+            border-bottom: 1px dashed rgba(58,65,80,0.3);
+        }
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .skill-category {
+            margin-bottom: 24px;
+        }
+        .category-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0066cc;
+            padding: 10px 14px;
+            background: rgba(0,102,204,0.08);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skill-item {
+            border-bottom: 1px solid rgba(58,65,80,0.06);
+        }
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+        .skill-link {
+            display: block;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s;
+            border-radius: 6px;
+        }
+        .skill-link:hover {
+            background: rgba(0,102,204,0.06);
+            transform: translateX(4px);
+        }
+        .skill-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 4px;
+        }
+        .skill-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .skill-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .skill-tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            background: rgba(0,102,204,0.1);
+            color: #0066cc;
+            border-radius: 12px;
+        }
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 12px;
+            transition: all 0.3s;
+        }
+        .github-link:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+        }
+        .footer-card p {
+            font-size: 15px;
+            color: #000000;
+            line-height: 1.75;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">三天笔记</a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="santian_wenji.html">三天文集</a>
+                <a href="santian_shouce.html">三天手册</a>
+                <a href="#">三天小说</a>
+                <a href="#">三天漫画</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <!-- 三天手册内容 -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <a href="https://github.com/drgon1/santian/tree/main/ai-skills" target="_blank" class="github-link" style="margin: 0;">
+                     查看 GitHub 仓库
+                </a>
+                <div class="page-title" style="flex: 1; text-align: center; border-bottom: none; padding: 0; margin: 0;">三天手册</div>
+                <div style="width: 120px;"></div>
+            </div>
+            <div class="page-subtitle">共收录 11 个 Skill · 持续更新中</div>
+            
+            
+            <!-- 编程规范类 -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <span>💻</span>
+                    <span>编程规范类</span>
+                </div>
+                <ul class="skill-list">
+                    
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/andrej-karpathy-skills.md" target="_blank" class="skill-link">
+                            <div class="skill-name">karpathy-skills</div>
+                            <div class="skill-description">Andrej Karpathy 编程行为准则（精简：精准修改、不废话、结果验证）。触发条件：代码编辑修改、精准改动需求、代码重构优化、测试验证、BUG修复、功能开发。</div>
+                            <div class="skill-tags"><span class="skill-tag">代码编辑修改</span><span class="skill-tag">精准改动需求</span><span class="skill-tag">代码重构优化</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/awesome-rules.md" target="_blank" class="skill-link">
+                            <div class="skill-name">awesome-rules</div>
+                            <div class="skill-description">Continue.dev 编程基础规则合集（基础：代码规范、中文注释、不啰嗦）。触发条件：代码编写规范、命名约定、函数设计、注释规范、代码整洁、SOLID原则、错误处理。</div>
+                            <div class="skill-tags"><span class="skill-tag">代码编写规范</span><span class="skill-tag">命名约定</span><span class="skill-tag">函数设计</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/deepseek-coding-manual.md" target="_blank" class="skill-link">
+                            <div class="skill-name">deepseek-coding-manual</div>
+                            <div class="skill-description">DeepSeek V4 Pro 编程思维手册。触发条件：需求拆解、项目搭建规划、技术选型分析、多模块任务分解、系统架构设计。不匹配排错调试和代码编写等执行层任务，这些任务由其他专属Skill处理。</div>
+                            <div class="skill-tags"><span class="skill-tag">需求拆解</span><span class="skill-tag">项目搭建规划</span><span class="skill-tag">技术选型分析</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/mattpocock-skills.md" target="_blank" class="skill-link">
+                            <div class="skill-name">mattpocock-skills</div>
+                            <div class="skill-description">Matt Pocock 编程Skill合集（核心：排错、极简输出、架构规范）。触发条件：BUG调试排错、代码诊断、性能回归排查、极简输出需求、架构重构优化、代码库解耦、模块深度设计、TDD测试驱动开发。</div>
+                            <div class="skill-tags"><span class="skill-tag">BUG调试排错</span><span class="skill-tag">代码诊断</span><span class="skill-tag">性能回归排查</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 浏览器自动化类 -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <span>🌐</span>
+                    <span>浏览器自动化类</span>
+                </div>
+                <ul class="skill-list">
+                    
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/browser-provider-implementer.md" target="_blank" class="skill-link">
+                            <div class="skill-name">browser-provider-implementer</div>
+                            <div class="skill-description">网页端大模型对接路由开发全流程。触发条件：浏览器网页模型对接、Playwright转发、内网穿透端口配置、IDE代理调试、接口通信异常修复。兼容豆包/千问/Kimi/DeepSeek等所有网页端模型。</div>
+                            <div class="skill-tags"><span class="skill-tag">浏览器网页模型对接</span><span class="skill-tag">Playwright转发</span><span class="skill-tag">内网穿透端口配置</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/playwright-test-generator.md" target="_blank" class="skill-link">
+                            <div class="skill-name">playwright-test-generator</div>
+                            <div class="skill-description">Playwright 测试脚本生成器。触发条件：需要快速创建浏览器自动化测试、验证发布流程、调试元素选择、生成调试代码。自动将截图保存到 test/ 目录。</div>
+                            <div class="skill-tags"><span class="skill-tag">需要快速创建浏览器自动化测试</span><span class="skill-tag">验证发布流程</span><span class="skill-tag">调试元素选择</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- AI工作流类 -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <span></span>
+                    <span>AI工作流类</span>
+                </div>
+                <ul class="skill-list">
+                    
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/auto-experience-trigger.md" target="_blank" class="skill-link">
+                            <div class="skill-name">auto-experience-trigger</div>
+                            <div class="skill-description">全局自动经验沉淀触发器 - 全程静默运行，自动判定场景并生成可复用 Skill，杜绝重复耗时思考与无效试错。触发条件：调试超时40秒、试错3轮未解决、同源场景识别。</div>
+                            <div class="skill-tags"><span class="skill-tag">调试超时40秒</span><span class="skill-tag">试错3轮未解决</span><span class="skill-tag">同源场景识别。</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/github-skill-publisher.md" target="_blank" class="skill-link">
+                            <div class="skill-name">github-skill-publisher</div>
+                            <div class="skill-description">GitHub Skill 上传与更新指南 - 将本地 Skill 发布到 GitHub 仓库并维护更新。触发条件：Skill 上传、GitHub 发布、版本更新、Skill 分享、开源贡献。</div>
+                            <div class="skill-tags"><span class="skill-tag">Skill 上传</span><span class="skill-tag">GitHub 发布</span><span class="skill-tag">版本更新</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/github-skill-updater.md" target="_blank" class="skill-link">
+                            <div class="skill-name">github-skill-updater</div>
+                            <div class="skill-description">GitHub Skill 自动更新触发器 - 检测 Skill 更新需求，自动执行修改并提交到 GitHub。触发条件：Skill 优化、Bug 修复、功能增强、文档完善、版本迭代。</div>
+                            <div class="skill-tags"><span class="skill-tag">Skill 优化</span><span class="skill-tag">Bug 修复</span><span class="skill-tag">功能增强</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/multi-mechanism-self-evolution.md" target="_blank" class="skill-link">
+                            <div class="skill-name">multi-mechanism-self-evolution</div>
+                            <div class="skill-description">多机制协同自我进化系统 - 通过多个机制配合实现完整的 AI 自我进化能力</div>
+                            
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 问题排查类 -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <span></span>
+                    <span>问题排查类</span>
+                </div>
+                <ul class="skill-list">
+                    
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/message-flow-troubleshooter.md" target="_blank" class="skill-link">
+                            <div class="skill-name">message-flow-troubleshooter</div>
+                            <div class="skill-description">中间层消息流问题排查 - 使用两端消息排查法定位 Cursor ↔ 中间路由层 ↔ LLM 服务端通信异常，快速判定故障点并执行重启或代码修复。触发条件：客户端收不到消息、消息异常、中间层代理故障。</div>
+                            <div class="skill-tags"><span class="skill-tag">客户端收不到消息</span><span class="skill-tag">消息异常</span><span class="skill-tag">中间层代理故障。</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 如何使用 -->
+        <div class="card">
+            <div class="page-title"> 如何使用</div>
+            
+            <h3 style="color: #0066cc; font-size: 16px; margin-top: 16px;">方式 1：直接在 GitHub 查看</h3>
+            <p style="font-size: 14px; color: #666;">点击上方的 Skill 链接，直接在 GitHub 上阅读完整文档。</p>
+            
+            <h3 style="color: #0066cc; font-size: 16px; margin-top: 16px;">方式 2：克隆到本地使用</h3>
+            <pre style="background: #f5f5f5; padding: 12px; border-radius: 6px; font-size: 13px; overflow-x: auto;">git clone https://github.com/drgon1/santian.git
+cd santian/ai-skills/.lingma/skills</pre>
+            
+            <h3 style="color: #0066cc; font-size: 16px; margin-top: 16px;">方式 3：导入到 Lingma IDE</h3>
+            <p style="font-size: 14px; color: #666;">将整个 Skill 文件夹复制到你的 <code>.lingma/skills/</code> 目录即可使用。</p>
+        </div>
+
+        <!-- 关于我们 -->
+        <div class="card footer-card" style="text-align:center;">
+            <h2 style="font-size:20px;font-weight:bold;color:#0066cc;border-bottom:1px dashed rgba(58,65,80,0.3);padding:0 0 10px 0;margin-top:0;margin-bottom:16px;">关于我们</h2>
+            <p>📱 公众号名称：三天笔记</p>
+            <p>✍️ 作者：曾三天</p>
+            <p style="font-size:14px;color:#666;margin:16px 0 10px 0;">扫码关注公众号，获取每日最新资讯</p>
+            <img src="https://drgon1.github.io/images/qrcode.jpg" alt="公众号二维码" style="width:200px;height:200px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        </div>
+
+        <!-- 版权 -->
+        <div class="card footer-card" style="text-align:center;">
+            <p style="font-size:15px;color:#666;">© 2024 三天笔记 保留所有权利</p>
+        </div>
+    </div>
+</body>
+</html>
