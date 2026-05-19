@@ -1,2 +1,7 @@
 # Local Netlify folder
 .netlify
+
+# Private Skills (without .public marker)
+# Note: Only skills with .public file will be synced to GitHub
+ai-skills/.lingma/skills/browser-provider-implementer/
+ai-skills/docs/browser-provider-implementer.md
