@@ -206,7 +206,7 @@
                 <div class="page-title" style="flex: 1; text-align: center; border-bottom: none; padding: 0; margin: 0;">三天手册</div>
                 <div style="width: 120px;"></div>
             </div>
-            <div class="page-subtitle">共收录 13 个 Skill · 持续更新中</div>
+            <div class="page-subtitle">共收录 21 个 Skill · 持续更新中</div>
             
             
             <!-- 编程规范类 -->
@@ -222,6 +222,13 @@
                             <div class="skill-name">awesome-rules</div>
                             <div class="skill-description">Continue.dev 编程基础规则合集（基础：代码规范、中文注释、不啰嗦）。触发条件：代码编写规范、命名约定、函数设计、注释规范、代码整洁、SOLID原则、错误处理。</div>
                             <div class="skill-tags"><span class="skill-tag">代码编写规范</span><span class="skill-tag">命名约定</span><span class="skill-tag">函数设计</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/bat-encoding-standards.md" target="_blank" class="skill-link">
+                            <div class="skill-name">bat-encoding-standards</div>
+                            <div class="skill-description">BAT 脚本标准化生成技能。AI 在编写、修改、生成 .bat 文件前必须主动调用本 Skill 加载规范。确保 UTF-8 编码、首行切 65001、子 bat 禁止重复 chcp、必须模拟双击自测。</div>
+                            
                         </a>
                     </li>
                     <li class="skill-item">
@@ -253,10 +260,45 @@
                         </a>
                     </li>
                     <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/login-闭环.md" target="_blank" class="skill-link">
+                            <div class="skill-name">login-闭环</div>
+                            <div class="skill-description">登录流程闭环自测。当用户要求'闭环登录'、'自测'、'测试登录'时立即触发。分步骤自动测试登录流程并验证免登录状态。</div>
+                            
+                        </a>
+                    </li>
+                    <li class="skill-item">
                         <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/mattpocock-skills.md" target="_blank" class="skill-link">
                             <div class="skill-name">mattpocock-skills</div>
                             <div class="skill-description">Matt Pocock 编程Skill合集（核心：排错、极简输出、架构规范）。触发条件：BUG调试排错、代码诊断、性能回归排查、极简输出需求、架构重构优化、代码库解耦、模块深度设计、TDD测试驱动开发。</div>
                             <div class="skill-tags"><span class="skill-tag">BUG调试排错</span><span class="skill-tag">代码诊断</span><span class="skill-tag">性能回归排查</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/multi-user-concurrency-safety.md" target="_blank" class="skill-link">
+                            <div class="skill-name">multi-user-concurrency-safety</div>
+                            <div class="skill-description">多用户并发风控安全管理 - 账号/IP/Worker的精细化调度与防封号策略。触发条件：多用户并发、风控处理、账号池管理、IP分组、请求串行化、Worker调度、容量预警。</div>
+                            <div class="skill-tags"><span class="skill-tag">多用户并发</span><span class="skill-tag">风控处理</span><span class="skill-tag">账号池管理</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/slider-captcha-solver.md" target="_blank" class="skill-link">
+                            <div class="skill-name">slider-captcha-solver</div>
+                            <div class="skill-description">阿里云 NC 滑块验证码解决方案。YOLO 间隙检测、DOM 比例映射、HumanMoveMouse 轨迹模拟、Windows API 鼠标控制。触发条件：滑块验证码、NC captcha、滑动拼图、Playwright/CloakBrowser 验证码处理。</div>
+                            <div class="skill-tags"><span class="skill-tag">滑块验证码</span><span class="skill-tag">NC captcha</span><span class="skill-tag">滑动拼图</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/web-llm-reverse-engineering.md" target="_blank" class="skill-link">
+                            <div class="skill-name">web-llm-reverse-engineering</div>
+                            <div class="skill-description">网页大模型逆向API + curl_cffi 浏览器模拟开发方法论。捕获浏览器完整请求画像（Header+Cookie+TLS指纹+sec-ch-*），用 curl_cffi impersonate 重放。适用于开发新网页版 LLM 的 HttpTemplate/BrowserProxy Provider。</div>
+                            
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/wechat-cookie-bridge.md" target="_blank" class="skill-link">
+                            <div class="skill-name">wechat-cookie-bridge</div>
+                            <div class="skill-description">微信快捷登录 Cookie Bridge 模式. 适用于新平台接入微信快捷登录, 需要持久化登录态且兼容 CloakBrowser 反检测. 系统 Chrome 登录 → 提取 Cookie+localStorage → 注入 CloakBrowser 持久化上下文.</div>
+                            
                         </a>
                     </li>
                 </ul>
@@ -272,8 +314,22 @@
                     <li class="skill-item">
                         <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/browser-agent-debug.md" target="_blank" class="skill-link">
                             <div class="skill-name">browser-agent-debug</div>
-                            <div class="skill-description">Browser Agent 调试方案（通用版）。触发条件：需要调试浏览器自动化脚本、验证发布流程、修复元素选择问题。核心原则：每步必截图、逐步验证、免登录调试。支持所有 AI 编程工具（Lingma/Cursor/Claude Code等），通过 CDP 连接到 CloakBrowser。</div>
-                            <div class="skill-tags"><span class="skill-tag">需要调试浏览器自动化脚本</span><span class="skill-tag">验证发布流程</span><span class="skill-tag">修复元素选择问题。核心原则：每步必截图</span></div>
+                            <div class="skill-description">Browser Agent 调试方案（通用版）。触发条件：需要调试浏览器自动化脚本、验证发布流程、修复元素选择问题。核心原则：CDP连接→DOM查询→直接操作→DOM验证，免登录调试。支持所有 AI 编程工具（Lingma/Cursor/Claude Code等），通过 CDP 连接到 CloakBrowser。</div>
+                            <div class="skill-tags"><span class="skill-tag">需要调试浏览器自动化脚本</span><span class="skill-tag">验证发布流程</span><span class="skill-tag">修复元素选择问题。核心原则：CDP连接→DOM查询→直接操作→DOM验证</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/browser-autonomous-agent.md" target="_blank" class="skill-link">
+                            <div class="skill-name">browser-autonomous-agent</div>
+                            <div class="skill-description">浏览器自主智能体 - 基于 Playwright CDP + CloakBrowser 的 AI 自主浏览器自动化方案。输入自然语言任务，AI 通过 CDP 协议直接查询 DOM、自主决策操作、执行任务并验证结果。整合反检测能力，可登录各大自媒体平台（头条/百家/大鱼/微信/小红书等）。触发条件：任何需要浏览器自动化完成的任务、数据采集、发布操作、页面操作。</div>
+                            <div class="skill-tags"><span class="skill-tag">任何需要浏览器自动化完成的任务</span><span class="skill-tag">数据采集</span><span class="skill-tag">发布操作</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/browser-interaction-flow.md" target="_blank" class="skill-link">
+                            <div class="skill-name">browser-interaction-flow</div>
+                            <div class="skill-description">浏览器操作流程正确设计方法论。包含全量DOM分析、操作→检测循环、效果验证。在涉及浏览器页面交互、按钮点击、流程设计时必须先调用本Skill加载规范。</div>
+                            
                         </a>
                     </li>
                     <li class="skill-item">
@@ -281,6 +337,13 @@
                             <div class="skill-name">browser-provider-implementer</div>
                             <div class="skill-description">网页端大模型对接路由开发全流程。触发条件：浏览器网页模型对接、CloakBrowser转发、内网穿透端口配置、IDE代理调试、接口通信异常修复。兼容豆包/千问/Kimi/DeepSeek等所有网页端模型。</div>
                             <div class="skill-tags"><span class="skill-tag">浏览器网页模型对接</span><span class="skill-tag">CloakBrowser转发</span><span class="skill-tag">内网穿透端口配置</span></div>
+                        </a>
+                    </li>
+                    <li class="skill-item">
+                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/cloak-not-playwright.md" target="_blank" class="skill-link">
+                            <div class="skill-name">cloak-not-playwright</div>
+                            <div class="skill-description">禁止直接调用 Playwright SDK，强制使用 CloakBrowser 包装层。触发条件：编写/修改涉及浏览器自动化代码、导入 playwright、调用 page._page、使用 raw_page 时。</div>
+                            <div class="skill-tags"><span class="skill-tag">编写/修改涉及浏览器自动化代码</span><span class="skill-tag">导入 playwright</span><span class="skill-tag">调用 page._page</span></div>
                         </a>
                     </li>
                 </ul>
@@ -296,8 +359,8 @@
                     <li class="skill-item">
                         <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/auto-experience-trigger.md" target="_blank" class="skill-link">
                             <div class="skill-name">auto-experience-trigger</div>
-                            <div class="skill-description">全局自动经验沉淀触发器 - 全程静默运行，自动判定场景并生成可复用 Skill，杜绝重复耗时思考与无效试错。触发条件：调试超时40秒、试错3轮未解决、同源场景识别。</div>
-                            <div class="skill-tags"><span class="skill-tag">调试超时40秒</span><span class="skill-tag">试错3轮未解决</span><span class="skill-tag">同源场景识别。</span></div>
+                            <div class="skill-description">全局经验沉淀触发器 - AI 必须在任务过程中主动自检触发条件（调试超时40秒、试错3轮未解决、同源场景识别），达标后立即调用本 Skill 固化经验生成可复用 Skill，杜绝重复耗时思考与无效试错。</div>
+                            
                         </a>
                     </li>
                     <li class="skill-item">
@@ -319,23 +382,6 @@
                             <div class="skill-name">multi-mechanism-self-evolution</div>
                             <div class="skill-description">多机制协同自我进化系统 - 通过多个机制配合实现完整的 AI 自我进化能力</div>
                             
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- 问题排查类 -->
-            <div class="skill-category">
-                <div class="category-header">
-                    <span></span>
-                    <span>问题排查类</span>
-                </div>
-                <ul class="skill-list">
-                    
-                    <li class="skill-item">
-                        <a href="https://github.com/drgon1/santian/blob/main/ai-skills/docs/message-flow-troubleshooter.md" target="_blank" class="skill-link">
-                            <div class="skill-name">message-flow-troubleshooter</div>
-                            <div class="skill-description">中间层消息流问题排查 - 使用两端消息排查法定位 Cursor ↔ 中间路由层 ↔ LLM 服务端通信异常，快速判定故障点并执行重启或代码修复。触发条件：客户端收不到消息、消息异常、中间层代理故障。</div>
-                            <div class="skill-tags"><span class="skill-tag">客户端收不到消息</span><span class="skill-tag">消息异常</span><span class="skill-tag">中间层代理故障。</span></div>
                         </a>
                     </li>
                 </ul>
