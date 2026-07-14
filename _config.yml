@@ -1,0 +1,5 @@
+# 排除 ai-skills 目录，避免其中的 Liquid 语法被 Jekyll 误解析
+exclude:
+  - ai-skills/
+  - node_modules/
+  - vendor/
